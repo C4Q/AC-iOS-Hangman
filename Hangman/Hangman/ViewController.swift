@@ -36,7 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         playerOneTextField.delegate = self
         playerTwoTextField.delegate = self
         //Disables Player Two text Field Until Player One Returns
-        //Is this too hard codyy ??
+        //Practicing git 
         playerTwoTextField.isEnabled = false
         playerOneTextField.isEnabled = true
         playerOneInstructionLabel.isHidden = false
