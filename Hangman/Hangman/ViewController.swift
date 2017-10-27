@@ -27,26 +27,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Hangman Picture
     @IBOutlet weak var hungManPicture: UIImageView!
     
+    //View Controller Variables
     var model = HangmanModel()
     var displayString = ""
+    var winner = ""
     
     //Overrides view and sets up text fields
     override func viewDidLoad() {
         super.viewDidLoad()
         playerOneTextField.delegate = self
         playerTwoTextField.delegate = self
-        //Disables Player Two text Field Until Player One Returns
-        //Practicing git 
-        playerTwoTextField.isEnabled = false
-        playerOneTextField.isEnabled = true
-        playerOneInstructionLabel.isHidden = false
-        hiddenWord.isHidden = true
-        playerTwoInstructionLabel.isHidden = true
+        resetLayout()
+        
     }
     
     
     
-    //When return is pressed
+    //When return is pressed, this code runs
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textFieldArr = [playerOneTextField.self ,playerTwoTextField.self ]
         print(textFieldArr)
@@ -74,20 +71,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if textField == playerTwoTextField {
             if let str = playerTwoTextField.text {
                 if playerTwoTextField.text?.count == 1 {
-                    if model.yourAreWrong(Character(str)) {
+                    if model.yourAreWrong(Character(str.lowercased())) {
                         changeImage(model.counter)
                     }
-                
-                displayString = model.displayGuesses(Character(str))
-                hiddenWord.text = displayString
-                textField.text = ""
-                textField.resignFirstResponder()
+                    
+                    displayString = model.displayGuesses(Character(str.lowercased()))
+                    hiddenWord.text = displayString
+                    textField.text = ""
+                    textField.resignFirstResponder()
                     if model.youWin(){
+                        winner = "Two"
+                        reload()
                         //disable everything and pop up new view with a restart
                     } else if model.youLoose() {
+                        winner = "One"
+                        reload()
                         //disable but say you lost and allow for a reset as well
                     }
-                return true
+                    return true
                 }
             }
         }
@@ -101,21 +102,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         hungManPicture.image = UIImage(named: imageName)
     }
     
+    //Reset Func
     func resetLayout() {
-        
+        self.playerTwoTextField.isEnabled = false
+        self.playerOneTextField.isEnabled = true
+        self.playerOneInstructionLabel.isHidden = false
+        self.hiddenWord.isHidden = true
+        self.playerTwoInstructionLabel.isHidden = true
+        model.startGame("")
+        changeImage(0)
     }
+    
+    //Reload Func
     func reload() {
-        var message = "Player Wins!"
-        let alert: UIAlertController = UIAlertController(title: "test", message: message, preferredStyle: .alert)
-        let action: UIAlertAction = UIAlertAction(title: "Play Again", style: .cancel, handler: {action in
-            
-            //Put code here that you want to run after the alertte
+        let message = "Player \(winner) Wins!"
+        let alert: UIAlertController = UIAlertController(title: "Match Finished", message: message, preferredStyle: .alert)
+        let action: UIAlertAction = UIAlertAction(title: "Play Again?", style: .cancel, handler: {action in
+            self.resetLayout()
             
         })
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-
+    
     
 }

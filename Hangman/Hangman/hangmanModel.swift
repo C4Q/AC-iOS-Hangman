@@ -11,17 +11,19 @@ import UIKit
 
 class HangmanModel {
     
+    //Model Variables
     var underscoreArr = [Character]()
     var charBank = [Character]()
     var wordToGuess = ""
     var counter = 0
-
+    
+    //Sets counter to 0 and inputs users input into an arr
     func startGame(_ wordToGuess: String) {
         counter = 0
         generateUnderScores(wordToGuess)
         
     }
-    
+    //Creates an image of underscores dependent on the count of the input word
     func generateUnderScores(_ wordToGuess: String) {
         self.wordToGuess = wordToGuess
         underscoreArr = []
@@ -48,7 +50,7 @@ class HangmanModel {
     
     
     
-    
+    //Checks if input is wrong or valid
     func yourAreWrong(_ char: Character) -> Bool {
         
         if !Set(wordToGuess).contains(char) {
@@ -64,57 +66,24 @@ class HangmanModel {
         return false
     }
     
+    //Loose Function
     func youLoose() -> Bool {
         if counter == 6 {
             return true
         }
         return false
-    
+        
     }
-        func youWin() -> Bool {
-
-            if !underscoreArr.contains("_") && counter < 6 {
-                return true
-            }
-            return false
-
-}
-
-//    func reload() {
-//        var message = "Player Wins!"
-//        let alert: UIAlertController = UIAlertController(title: "test", message: message, preferredStyle: .alert)
-//        let action: UIAlertAction = UIAlertAction(title: "Play Again", style: .cancel, handler: {action in
-//            
-//          //Put code here that you want to run after the alert
-//            
-//        })
-//        
-//        alert.addAction(action)
-//        present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
-//    }
-
-
-
-
-//✓✓✓✓✓✓✓✓✓✓Only allow player two to input a single char ✓
-//create a lose of win func where either win or loose the screen is diabled and asks user if they want to play again // only dif is the label will either say player on/two won
-//maybe make another view that hides during the game and then pops up for lose win condition
-//whats the easiest way to do this UI Style
-
-//win condition // if there are no more underscores, && counter < 6, player two wins
-//if counter first reaches 6, player 1 wins
-
-//the restart needs press button and then to call viewDidLoad and reset the counter
-
-
-
+    //Win Function
+    func youWin() -> Bool {
+        
+        if !underscoreArr.contains("_") && counter < 6 {
+            return true
+        }
+        return false
+        
+    }
     
     
     
-    
-    
-    
-    
-
-
 }
