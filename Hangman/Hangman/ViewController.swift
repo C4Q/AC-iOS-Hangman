@@ -28,18 +28,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
-        textField.resignFirstResponder()
+        
+        brain.playerOneString = text
+        while brain.newTwoPlayerGame == true {
+            brain.playerOnePicksAWordToGuess()
+            wordDisplay.text = String(brain.wordToFindAsArray)
+            brain.newTwoPlayerGame = false
+        }
+        
+        
+        
+        
+        
         return true
     }
     
     
     
-    
+    var secretWord = SecretWord()
+    var brain = HangmanBrain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textField.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        //hangmanWord.pickARandomWord() //Use for single Player Mode 
+        //wordDisplay.text = String(hangmanWord.wordToFindAsArray)
     }
     
     
