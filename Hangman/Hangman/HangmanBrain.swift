@@ -11,13 +11,56 @@ import Foundation
 struct RandomWord {
     var word: String
     var dashedWord: String
+    var dashedArr: [Character]
+}
+class GameValues {
+    var randWord: RandomWord?
+    var numOfGuess: Int
+    var triesRemaining: Int
+    var guessedLetters: Set<String>
+    
+    init(word: RandomWord?, numOfGuess: Int, triesRemaining: Int, guessedLetters: Set<String>) {
+        self.randWord = word
+        self.numOfGuess = numOfGuess
+        self.triesRemaining = triesRemaining
+        self.guessedLetters = guessedLetters
+    }
+}
+enum GameState {
+    case notStarted
+    case onGoing(withStats: GameValues)
+    case won(withStats: GameValues)
+    case lost(withStats: GameValues)
+}
+
+enum NumberOfPlayers {
+    case one
+    case two
 }
 
 class HangmanBrain {
     
     var numOfGuess = 0
+    var triesRemaining = 7
     var guessedLetters: Set<String> = []
-    var randWord = RandomWord(word: "", dashedWord: "")
+    
+    var newRandWord = RandomWord(word: "", dashedWord: "", dashedArr: [Character]())
+    var currentGameState = GameState.notStarted
+    var currentStats = GameValues(word: nil, numOfGuess: 0, triesRemaining: 7, guessedLetters: [])
+
+    
+
+    func setGivenWord(word: String) {
+        let randomWord = word
+        let randomWordCount = randomWord.count
+        let randomWordHolder = String(repeating: "_", count: randomWordCount)
+        let randomWordHolderArr = Array(randomWordHolder)
+        
+        newRandWord = RandomWord(word: randomWord, dashedWord: randomWordHolder, dashedArr: randomWordHolderArr)
+        currentStats.randWord = newRandWord
+        currentGameState = GameState.onGoing(withStats: currentStats)
+
+    }
     
     func getRandomWord() {
         let wordBankCount = self.wordBank.count
@@ -26,18 +69,43 @@ class HangmanBrain {
         let randomWord = self.wordBank[randomIndex]
         let randomWordCount = randomWord.count
         let randomWordHolder = String(repeating: "_", count: randomWordCount)
-        randWord = RandomWord(word: randomWord, dashedWord: randomWordHolder)
+        let randomWordHolderArr = Array(randomWordHolder)
+        newRandWord = RandomWord(word: randomWord, dashedWord: randomWordHolder, dashedArr: randomWordHolderArr)
+        currentStats.randWord = newRandWord
+        currentGameState = GameState.onGoing(withStats: currentStats)
     }
     
-    func updateGuesses(increment: Bool) -> String {
-        numOfGuess = (increment == true ? numOfGuess + 1 : numOfGuess * 0)
-        return String(describing: numOfGuess)
+    func updateGuesses(shouldReset: Bool) -> String {
+        currentStats.numOfGuess = (shouldReset == false ? currentStats.numOfGuess + 1 :  0)
+        currentStats.triesRemaining = (shouldReset == false ? currentStats.triesRemaining - 1 : 7)
+        dump(currentStats)
+        
+        if triesRemaining == 0 {
+            //END GAME
+        }
+        return String(describing: currentStats.numOfGuess)
     }
     
     func updateGuessedLetters(letter: String) -> String {
-        guessedLetters.insert(letter)
-        return String(describing: guessedLetters)
+        currentStats.guessedLetters.insert(letter)
+        return String(describing: currentStats.guessedLetters)
     }
+    
+    func getStats() -> GameValues {
+        return currentStats
+    }
+    
+    func dashedWordUpdate(letter: String) -> String {
+        for (index, char) in currentStats.randWord!.word.enumerated() {
+            if letter == String(char) {
+                currentStats.randWord!.dashedArr[index] = Character(letter)
+                currentStats.randWord!.dashedWord = String(currentStats.randWord!.dashedArr)
+                print(currentStats.randWord!.dashedArr)
+            }
+        }
+        return currentStats.randWord!.dashedWord
+    }
+    
     
     
     
