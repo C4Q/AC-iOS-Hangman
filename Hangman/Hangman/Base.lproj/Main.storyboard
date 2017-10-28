@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,71 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nicol-Bolas-God-Pharaoh-MtG-Art" translatesAutoresizingMaskIntoConstraints="NO" id="k03-gf-JHJ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter A Letter" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8d7-Bd-Osa">
+                                <rect key="frame" x="105.5" y="153" width="110.5" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.99998795986175537" blue="1" alpha="0.75896297089041098" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plainswalker Hangman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76c-Ib-sKZ">
+                                <rect key="frame" x="0.0" y="30" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.99998795986175537" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MessageToPlayer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86U-zg-7LA" userLabel="MessageToPlayer">
+                                <rect key="frame" x="0.0" y="206" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.99998795986175537" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ui-p1-29p">
+                                <rect key="frame" x="0.0" y="83" width="320" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8d7-Bd-Osa" firstAttribute="centerY" secondItem="k03-gf-JHJ" secondAttribute="centerY" multiplier="0.7" id="6iY-rr-Bji"/>
+                            <constraint firstItem="76c-Ib-sKZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="AGn-wy-I3g"/>
+                            <constraint firstItem="86U-zg-7LA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dn8-ot-ZWR"/>
+                            <constraint firstItem="k03-gf-JHJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FFY-uS-N3f"/>
+                            <constraint firstAttribute="bottom" secondItem="k03-gf-JHJ" secondAttribute="bottom" id="Gmj-8n-VZ7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="86U-zg-7LA" secondAttribute="trailing" id="I6b-2Z-ZhR"/>
+                            <constraint firstItem="86U-zg-7LA" firstAttribute="top" secondItem="8d7-Bd-Osa" secondAttribute="bottom" constant="23" id="MMh-AI-FFy"/>
+                            <constraint firstItem="7Ui-p1-29p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SwH-75-bqE"/>
+                            <constraint firstItem="7Ui-p1-29p" firstAttribute="centerY" secondItem="k03-gf-JHJ" secondAttribute="centerY" multiplier="0.4" id="YX4-vC-zm8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="76c-Ib-sKZ" secondAttribute="trailing" id="lDz-Rh-hcb"/>
+                            <constraint firstItem="k03-gf-JHJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vhY-Oa-fd9"/>
+                            <constraint firstAttribute="trailing" secondItem="k03-gf-JHJ" secondAttribute="trailing" id="vuf-kB-FuQ"/>
+                            <constraint firstItem="8d7-Bd-Osa" firstAttribute="centerX" secondItem="k03-gf-JHJ" secondAttribute="centerX" id="wCa-qq-QOS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Ui-p1-29p" secondAttribute="trailing" id="xUi-KI-yKr"/>
+                            <constraint firstItem="76c-Ib-sKZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zVp-uS-ieI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="messageToPlayer" destination="86U-zg-7LA" id="PLs-q3-ssJ"/>
+                        <outlet property="textField" destination="8d7-Bd-Osa" id="q8B-rP-CaQ"/>
+                        <outlet property="wordDisplay" destination="7Ui-p1-29p" id="388-XE-XdU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Nicol-Bolas-God-Pharaoh-MtG-Art" width="723" height="960"/>
+    </resources>
 </document>
