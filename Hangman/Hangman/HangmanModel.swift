@@ -49,9 +49,17 @@ class HangmanBrain: SecretWord {
         case End(OneOrTwoPlayers)
     }
     
-    let startOfTwoPlayerGame = GameState.Beginning(.TwoPlayer)
     let startOfSinglePlayerGame = GameState.Beginning(.SinglePlayer)
+    let startOfTwoPlayerGame = GameState.Beginning(.TwoPlayer)
+    let ongoingSinglePlayerGame = GameState.Ongoing(.SinglePlayer)
+    let ongoingTwoPlayerGame = GameState.Ongoing(.TwoPlayer)
+    let endSinglePlayerGame = GameState.End(.SinglePlayer)
+    let endTwoPlayerGame = GameState.End(.TwoPlayer)
+    
+    
+    
     var currentGameState = GameState.Beginning(.TwoPlayer)
+    
     
     var youWin = false
     var youLost = false

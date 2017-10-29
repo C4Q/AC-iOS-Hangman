@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func resetButton(_ sender: UIButton) {
         resetGame()
     }
-    @IBOutlet weak var resetButtonOutlet: UIButton!
+    
     @IBAction func oneOrTwoPlayerButtons(_ sender: UIButton) {
         if sender.tag == 1 {
             brain.currentGameState = brain.startOfSinglePlayerGame
@@ -28,15 +28,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     @IBAction func DifficultySelectorButtons(_ sender: UIButton) {
+        if sender.tag == 3 {
+            brain.pickAnEasyRandomWord()
+            brain.currentGameState = brain.ongoingSinglePlayerGame
+            gameStateCheck()
+        }
+        if sender.tag == 4 {
+            brain.pickAHardRandomWord()
+            brain.currentGameState = brain.ongoingSinglePlayerGame
+            gameStateCheck()
+        }
     }
     @IBOutlet weak var SinglePlayerButton: UIButton!
     @IBOutlet weak var twoPlayerButton: UIButton!
     @IBOutlet weak var easyButton: UIButton!
     @IBOutlet weak var hardButton: UIButton!
-    
-    
-    
-    
+    @IBOutlet weak var resetButtonOutlet: UIButton!
     @IBOutlet weak var textFieldForGuessing: UITextField!
     @IBOutlet weak var wrongLettersLabel: UILabel!
     @IBOutlet weak var wordDisplay: UILabel!
@@ -51,9 +58,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         if let text = textFieldForGuessing.text {
             if brain.correctAnswerArray.contains(text) || brain.wrongAnswerArray.contains(text) {
-                messageToPlayer.text = "You picked \(text) already"
-            return false
+                messageToPlayer.text = "You picked \"\(text)\" already"
+                return true
             }
+            return true
         }
         return true
     }
@@ -62,12 +70,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         guard let text = textField.text else {
             messageToPlayer.text = "Invalid Input"
             messageToPlayer.isHidden = false
-            return false
+            return true
         }
         guard textFieldForGuessing.text != nil else {
             messageToPlayer.text = "Invalid Input"
             messageToPlayer.isHidden = false
-            return false
+            return true
         }
         
         brain.playerOneString = text.lowercased()
@@ -113,15 +121,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+        //while brain.currentGameState == brain.startOfTwoPlayerGame - doesnt work :/
         
         while brain.newTwoPlayerGame == true {
-            brain.playerOnePicksAWordToGuess()
-            wordDisplay.text = String(brain.wordToFindAsArray)
-            brain.newTwoPlayerGame = false
-            wordDisplay.isHidden = false
-            textField.isHidden = true
-            textFieldForGuessing.isHidden = false
-            messageToPlayer.text = "Player Two - Pick a Letter!"
+//            brain.playerOnePicksAWordToGuess()
+//            wordDisplay.text = String(brain.wordToFindAsArray)
+//            wordDisplay.isHidden = false
+//            textField.isHidden = true
+//            textFieldForGuessing.isHidden = false
+//            messageToPlayer.text = "Player Two - Pick a Letter!"
+//            brain.newTwoPlayerGame = false
+            brain.currentGameState = brain.ongoingTwoPlayerGame
+            gameStateCheck()
         }
         wordDisplay.text = String(describing: brain.answerLengthArray)
         textField.text = ""
@@ -142,11 +153,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         textField.delegate = self
         textFieldForGuessing.delegate = self
-        manImage.image = nil
-        wordDisplay.isHidden = true
-        wrongLettersLabel.isHidden = true
-        textFieldForGuessing.isHidden = true
-        messageToPlayer.text = "Player One - Make a Word To Guess"
+        resetGame()
         
     }
     func disableGame() {
@@ -158,7 +165,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         wordDisplay.isHidden = true
         wrongLettersLabel.isHidden = true
         textFieldForGuessing.isHidden = true
-        messageToPlayer.text = "Player One - Make a Word To Guess"
         brain.newTwoPlayerGame = true
         brain.youLost = false
         brain.youWin = false
@@ -170,8 +176,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         brain.answerLengthArray = []
         brain.wordToFind = ""
         resetButtonOutlet.isHidden = true
-        textField.isHidden = false
         textFieldForGuessing.isEnabled = true
+        SinglePlayerButton.isHidden = false
+        twoPlayerButton.isHidden = false
+        textField.isHidden = true
+        messageToPlayer.text = "Pick From Below!"
     }
     func gameStateCheck() {
         switch brain.currentGameState {
@@ -179,25 +188,45 @@ class ViewController: UIViewController, UITextFieldDelegate {
             switch OneOrTwoPlayer {
             case .SinglePlayer:
                 print("It's the beginning of a singleplayer game.")
-                resetGame()
-                textFieldForGuessing.isHidden = false
+                textFieldForGuessing.isHidden = true
                 textField.isHidden = true
                 messageToPlayer.text = "Player One - Pick a category"
                 SinglePlayerButton.isHidden = true
                 twoPlayerButton.isHidden = true
                 easyButton.isHidden = false
                 hardButton.isHidden = false
+                brain.newTwoPlayerGame = false
                 
             case .TwoPlayer:
                 print("It's the beginning of a twoplayer game.")
-                resetGame()
+                messageToPlayer.text = "Player One - Make a Word To Guess"
+                easyButton.isHidden = true
+                hardButton.isHidden = true
+                SinglePlayerButton.isHidden = true
+                twoPlayerButton.isHidden = true
+                textField.isHidden = false
+                brain.newTwoPlayerGame = true
+                
             }
         case .Ongoing(let OneOrTwoPlayer):
             switch OneOrTwoPlayer {
             case .SinglePlayer:
                 print("It's an ongoing singleplayer game")
+                messageToPlayer.text = "Player One - Guess a Letter"
+                easyButton.isHidden = true
+                hardButton.isHidden = true
+                textFieldForGuessing.isHidden = false
+                wordDisplay.text = String(describing: brain.answerLengthArray)
+                wordDisplay.isHidden = false
             case .TwoPlayer:
                 print("It's an ongoing twoplayer game")
+                brain.playerOnePicksAWordToGuess()
+                wordDisplay.text = String(describing: brain.answerLengthArray)
+                wordDisplay.isHidden = false
+                textField.isHidden = true
+                textFieldForGuessing.isHidden = false
+                messageToPlayer.text = "Player Pick a Letter!"
+                brain.newTwoPlayerGame = false
             }
         case .End(let OneOrTwoPlayer):
             switch OneOrTwoPlayer {
