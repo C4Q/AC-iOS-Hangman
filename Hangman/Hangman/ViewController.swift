@@ -17,6 +17,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         resetGame()
     }
     @IBOutlet weak var resetButtonOutlet: UIButton!
+    @IBAction func oneOrTwoPlayerButtons(_ sender: UIButton) {
+        if sender.tag == 1 {
+            brain.currentGameState = brain.startOfSinglePlayerGame
+            gameStateCheck()
+        }
+        if sender.tag == 2 {
+            brain.currentGameState = brain.startOfTwoPlayerGame
+            gameStateCheck()
+        }
+    }
+    @IBAction func DifficultySelectorButtons(_ sender: UIButton) {
+    }
+    @IBOutlet weak var SinglePlayerButton: UIButton!
+    @IBOutlet weak var twoPlayerButton: UIButton!
+    @IBOutlet weak var easyButton: UIButton!
+    @IBOutlet weak var hardButton: UIButton!
+    
+    
+    
     
     @IBOutlet weak var textFieldForGuessing: UITextField!
     @IBOutlet weak var wrongLettersLabel: UILabel!
@@ -153,8 +172,44 @@ class ViewController: UIViewController, UITextFieldDelegate {
         resetButtonOutlet.isHidden = true
         textField.isHidden = false
         textFieldForGuessing.isEnabled = true
-        
+    }
+    func gameStateCheck() {
+        switch brain.currentGameState {
+        case .Beginning(let OneOrTwoPlayer):
+            switch OneOrTwoPlayer {
+            case .SinglePlayer:
+                print("It's the beginning of a singleplayer game.")
+                resetGame()
+                textFieldForGuessing.isHidden = false
+                textField.isHidden = true
+                messageToPlayer.text = "Player One - Pick a category"
+                SinglePlayerButton.isHidden = true
+                twoPlayerButton.isHidden = true
+                easyButton.isHidden = false
+                hardButton.isHidden = false
+                
+            case .TwoPlayer:
+                print("It's the beginning of a twoplayer game.")
+                resetGame()
+            }
+        case .Ongoing(let OneOrTwoPlayer):
+            switch OneOrTwoPlayer {
+            case .SinglePlayer:
+                print("It's an ongoing singleplayer game")
+            case .TwoPlayer:
+                print("It's an ongoing twoplayer game")
+            }
+        case .End(let OneOrTwoPlayer):
+            switch OneOrTwoPlayer {
+            case .SinglePlayer:
+                print("It's the end of a singleplayer game")
+            case .TwoPlayer:
+                print("It's the end of a twoplayer game")
+            }
+        }
         
     }
+    
+    
 }
 
