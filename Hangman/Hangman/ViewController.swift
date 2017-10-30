@@ -23,7 +23,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var playerTwoTextField: UITextField!
     var textFieldArr: [UITextField] = []
     
-    
     // Hangman Picture
     @IBOutlet weak var hungManPicture: UIImageView!
     
@@ -31,6 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var model = HangmanModel()
     var displayString = ""
     var winner = ""
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
     
     //Overrides view and sets up text fields
     override func viewDidLoad() {
@@ -41,16 +41,44 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    //Func to check if user is inputting letters only
+    func aLetterInAlphabet() -> Bool {
+        if (playerOneTextField.text?.contains(alphabet))!{
+            
+        }
+        if (playerTwoTextField.text?.contains(alphabet))! {
+            
+        }
+        return true
+    }
     
+    //Func makes sure it is one char and disables backspace
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        
+        if textField == playerTwoTextField {
+            guard let text = playerTwoTextField.text else {
+                return false
+            }
+            if !(text.count > 0) {
+                return true
+            }
+            return false
+        }
+        return true
+    }
+ 
+   
     
     //When return is pressed, this code runs
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textFieldArr = [playerOneTextField.self ,playerTwoTextField.self ]
-        print(textFieldArr)
         
+        
+        
+        //Player One Entry
         if textField == playerOneTextField {
             if let str = playerOneTextField.text {
-                
+                // if the text field does not equal a num code here
                 model.startGame(str)
                 hiddenWord.text = String(repeating: "_ ", count: model.wordToGuess.count)
                 textField.text = ""
@@ -63,14 +91,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 playerTwoInstructionLabel.isHidden = false
                 playerTwoTextField.isEnabled = true
                 return true
+                //}
             }
             
         }
+        
+        //Player Two Entry
         
         
         if textField == playerTwoTextField {
             if let str = playerTwoTextField.text {
                 if playerTwoTextField.text?.count == 1 {
+                    // if the text field does not equal a num code here
                     if model.yourAreWrong(Character(str.lowercased())) {
                         changeImage(model.counter)
                     }
@@ -82,11 +114,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     if model.youWin(){
                         winner = "Two"
                         reload()
-                        //disable everything and pop up new view with a restart
+                        
                     } else if model.youLoose() {
                         winner = "One"
                         reload()
-                        //disable but say you lost and allow for a reset as well
+                        
                     }
                     return true
                 }
@@ -95,6 +127,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         return false
     }
+    
     
     func changeImage(_ num: Int) {
         let imageName = "man\(num + 1)"
