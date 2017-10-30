@@ -12,6 +12,11 @@
 		3E1A62181F97B0930025E03C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A62161F97B0930025E03C /* Main.storyboard */; };
 		3E1A621A1F97B0930025E03C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A62191F97B0930025E03C /* Assets.xcassets */; };
 		3E1A621D1F97B0930025E03C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A621B1F97B0930025E03C /* LaunchScreen.storyboard */; };
+		81361AFA1FA544A100529A8F /* HangmanOnePlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81361AF91FA544A100529A8F /* HangmanOnePlayerModel.swift */; };
+		81361B001FA55E3300529A8F /* OnePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81361AFF1FA55E3300529A8F /* OnePlayerViewController.swift */; };
+		81361B021FA568F800529A8F /* PlayerOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81361B011FA568F800529A8F /* PlayerOneViewController.swift */; };
+		81361B051FA5777400529A8F /* HangmanTwoPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81361B041FA5777400529A8F /* HangmanTwoPlayerModel.swift */; };
+		81C3B16C1FA6CEF80038CF94 /* PlayerTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C3B16B1FA6CEF80038CF94 /* PlayerTwoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		3E1A62191F97B0930025E03C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E1A621C1F97B0930025E03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E1A621E1F97B0930025E03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81361AF91FA544A100529A8F /* HangmanOnePlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanOnePlayerModel.swift; sourceTree = "<group>"; };
+		81361AFF1FA55E3300529A8F /* OnePlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnePlayerViewController.swift; sourceTree = "<group>"; };
+		81361B011FA568F800529A8F /* PlayerOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerOneViewController.swift; sourceTree = "<group>"; };
+		81361B041FA5777400529A8F /* HangmanTwoPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanTwoPlayerModel.swift; sourceTree = "<group>"; };
+		81C3B16B1FA6CEF80038CF94 /* PlayerTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTwoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,35 @@
 		3E1A62111F97B0920025E03C /* Hangman */ = {
 			isa = PBXGroup;
 			children = (
-				3E1A62121F97B0930025E03C /* AppDelegate.swift */,
-				3E1A62141F97B0930025E03C /* ViewController.swift */,
+				81361AF81FA5008900529A8F /* Unused Stuff */,
+				81361B031FA5690B00529A8F /* View Controllers */,
 				3E1A62161F97B0930025E03C /* Main.storyboard */,
 				3E1A62191F97B0930025E03C /* Assets.xcassets */,
 				3E1A621B1F97B0930025E03C /* LaunchScreen.storyboard */,
+				81361AF91FA544A100529A8F /* HangmanOnePlayerModel.swift */,
+				81361B041FA5777400529A8F /* HangmanTwoPlayerModel.swift */,
 				3E1A621E1F97B0930025E03C /* Info.plist */,
 			);
 			path = Hangman;
+			sourceTree = "<group>";
+		};
+		81361AF81FA5008900529A8F /* Unused Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				3E1A62121F97B0930025E03C /* AppDelegate.swift */,
+			);
+			path = "Unused Stuff";
+			sourceTree = "<group>";
+		};
+		81361B031FA5690B00529A8F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E1A62141F97B0930025E03C /* ViewController.swift */,
+				81361AFF1FA55E3300529A8F /* OnePlayerViewController.swift */,
+				81361B011FA568F800529A8F /* PlayerOneViewController.swift */,
+				81C3B16B1FA6CEF80038CF94 /* PlayerTwoViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +167,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81361B051FA5777400529A8F /* HangmanTwoPlayerModel.swift in Sources */,
+				81361B021FA568F800529A8F /* PlayerOneViewController.swift in Sources */,
+				81361AFA1FA544A100529A8F /* HangmanOnePlayerModel.swift in Sources */,
 				3E1A62151F97B0930025E03C /* ViewController.swift in Sources */,
+				81C3B16C1FA6CEF80038CF94 /* PlayerTwoViewController.swift in Sources */,
+				81361B001FA55E3300529A8F /* OnePlayerViewController.swift in Sources */,
 				3E1A62131F97B0930025E03C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TX9MB8N6AG;
+				DEVELOPMENT_TEAM = M6644XK36Y;
 				INFOPLIST_FILE = Hangman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.c4q.marcelchaucer.Hangman;
@@ -290,7 +326,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TX9MB8N6AG;
+				DEVELOPMENT_TEAM = M6644XK36Y;
 				INFOPLIST_FILE = Hangman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.c4q.marcelchaucer.Hangman;
