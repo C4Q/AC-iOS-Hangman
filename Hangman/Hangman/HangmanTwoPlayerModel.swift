@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class HangmanTwoPlayerModel: HangmanOnePlayerModel {
+    //Public API
+    func getRandomWord(_ playerOneWord: String) {
+        randomWord = Array(playerOneWord.lowercased()).map{String($0)}
+        guessWord = Array(repeatElement("_", count: randomWord.count))
+    }
+}
