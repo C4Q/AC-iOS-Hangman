@@ -10,9 +10,15 @@ import UIKit
 
 class OnePlayerViewController: UIViewController {
 
+    var hangman = HangmanOnePlayerModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        hangman.newGame()
+    }
+    
+    @IBAction func newGameButtonPressed(_ sender: UIBarButtonItem) {
+        hangman.newGame()
     }
     
 }
