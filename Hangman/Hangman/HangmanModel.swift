@@ -38,7 +38,7 @@ class SecretWord {
     }
 }
 class HangmanBrain: SecretWord {
-    enum OneOrTwoPlayers: String {
+    enum OneOrTwoPlayers {
         case SinglePlayer
         case TwoPlayer
     }
