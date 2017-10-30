@@ -8,13 +8,11 @@
 
 import UIKit
 
-class TwoPlayerPOneViewController: UIViewController, UITextFieldDelegate {
+class PlayerOneViewController: UIViewController, UITextFieldDelegate {
 
     //Player One Objects
     @IBOutlet weak var playerOnePickAWordLabel: UILabel!
     @IBOutlet weak var playerOneTextField: UITextField!
-    
-    var hangman = HangmanTwoPlayerModel()
     
     override func viewDidLoad() {
         if let safePlayerOneTextField = playerOneTextField {
@@ -41,45 +39,35 @@ class TwoPlayerPOneViewController: UIViewController, UITextFieldDelegate {
             } else {
                 playerOnePickAWordLabel.text = "Please use letters from the alphabet."
             }
-        } else if textField == playerTwoTextField {
-            if "abcdefghijklmnopqrstuvwxyz".contains(string.lowercased()) {
-                return true
-            } else if string == "" {
-                gameResultLabel.text = "You cannot delete answers."
-            } else {
-                gameResultLabel.text = "Please use letters from the alphabet."
-            }
         }
         return false
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == playerOneTextField {
-            if textField.text?.count == 0 {
-                playerOnePickAWordLabel.text = "You must enter at least one character."
-                return false
-            }
-        }
-        return true
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "BeginGame", let text = playerOneTextField.text {
-            if text.count <= 0 {
-                playerOnePickAWordLabel.text = "You must enter at least one character."
-                return false
-            }
-        }
-        return true
-    }
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        if identifier == "BeginGame", let text = playerOneTextField.text {
+//            if text.count <= 0 {
+//                playerOnePickAWordLabel.text = "You must enter at least one character."
+//                return false
+//            }
+//        }
+//        return true
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "BeginGame" {
-            hangman.getRandomWord(playerOneTextField.text!)
-            let guessedWord = hangman.guessWord.joined(separator: " ")
-            if let twoPlayerViewController = segue.destination as? TwoPlayerViewController {
-                twoPlayerViewController.guessedWordLabel.text = guessedWord
-            }
+        if let playerTwoViewController = segue.destination as? PlayerTwoViewController {
+            playerTwoViewController.hangman = HangmanTwoPlayerModel()
+            playerTwoViewController.hangman?.getRandomWord(playerOneTextField.text!)
+            playerOneTextField.text = ""
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = playerOneTextField.text, text.count > 0 else {
+            playerOnePickAWordLabel.text = "You must enter at least one character."
+            return false
+        }
+        
+        performSegue(withIdentifier: "Begin Game", sender: self)
+        return true
     }
 }
