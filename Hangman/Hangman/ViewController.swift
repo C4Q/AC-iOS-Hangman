@@ -59,9 +59,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if let text = textFieldForGuessing.text {
             if brain.correctAnswerArray.contains(text) || brain.wrongAnswerArray.contains(text) {
                 messageToPlayer.text = "You picked \"\(text)\" already"
-                return true
+                return false
             }
-            return true
+        }
+        if textField == textFieldForGuessing {
+            guard string.count == 1, textFieldForGuessing.text!.count < 1 else {return false}
         }
         return true
     }
