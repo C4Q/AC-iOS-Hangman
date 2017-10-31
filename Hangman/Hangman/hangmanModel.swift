@@ -94,5 +94,5 @@ class HangmanModel {
 
 //no spaces allowed DONEEEE
 //no deletes allowed DONEEEE
-//no ints allowed 
+//no ints allowed
 

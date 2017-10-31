@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    // //Two Player Hangman Outlets
+    //Two Player Hangman
+
     
     // Instruction Labels
     @IBOutlet weak var playerOneInstructionLabel: UILabel!
@@ -108,6 +109,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 if model.yourAreWrong(Character(str.lowercased())) {
                     changeImage(model.counter)
                 }
+                playerTwoInstructionLabel.isHidden = true
                 displayString = model.displayGuesses(Character(str.lowercased()))
                 hiddenWord.text = displayString
                 textField.text = ""
@@ -154,8 +156,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
     }
-    
-    
     
     
 }
