@@ -32,7 +32,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var displayString = ""
     var winner = ""
     let alphabet = "abcdefghijklmnopqrstuvwxyz"
-    
+    var alertMessage = ""
     //Overrides view and sets up text fields
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,9 +116,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 textField.resignFirstResponder()
                 if model.youWin(){
                     winner = "Two"
+                    alertMessage = "Lucky..."
                     reload()
                 } else if model.youLoose() {
                     winner = "One"
+                    alertMessage = "\(model.wordToGuess)"
                     reload()
                 }
                 return true
@@ -149,7 +151,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //Reload Func
     func reload() {
         let message = "Player \(winner) Wins!"
-        let alert: UIAlertController = UIAlertController(title: "Match Finished", message: message, preferredStyle: .alert)
+        let alert: UIAlertController = UIAlertController(title: alertMessage, message: message, preferredStyle: .alert)
         let action: UIAlertAction = UIAlertAction(title: "Play Again?", style: .cancel, handler: {action in
             self.resetLayout()
         })

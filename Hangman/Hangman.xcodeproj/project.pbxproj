@@ -23,7 +23,6 @@
 		3E1A62191F97B0930025E03C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E1A621C1F97B0930025E03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E1A621E1F97B0930025E03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81684BEC1FA14DC80070FAF8 /* GOT .jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GOT .jpg"; path = "../../../../Downloads/GOT .jpg"; sourceTree = "<group>"; };
 		81684BED1FA14EB40070FAF8 /* hangmanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hangmanModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +61,6 @@
 				3E1A62161F97B0930025E03C /* Main.storyboard */,
 				81684BED1FA14EB40070FAF8 /* hangmanModel.swift */,
 				3E1A62191F97B0930025E03C /* Assets.xcassets */,
-				81684BEC1FA14DC80070FAF8 /* GOT .jpg */,
 				3E1A621B1F97B0930025E03C /* LaunchScreen.storyboard */,
 				3E1A621E1F97B0930025E03C /* Info.plist */,
 			);
