@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nCh-f7-LWL">
+                                <rect key="frame" x="67" y="380" width="241" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="236-ed-JT2" userLabel="Set Word">
+                                <rect key="frame" x="94" y="320" width="187.5" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Weu-HE-2pi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man1" translatesAutoresizingMaskIntoConstraints="NO" id="D8U-sW-r5q">
+                                <rect key="frame" x="112.5" y="93" width="150" height="177"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter A Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4C-29-bHb">
+                                <rect key="frame" x="128" y="39" width="119" height="24"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="1"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hdc-k9-zOp">
+                                <rect key="frame" x="67" y="380" width="241" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrE-YB-7v7">
+                                <rect key="frame" x="150" y="437" width="75" height="30"/>
+                                <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vJV-Nk-fOI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hdc-k9-zOp" firstAttribute="leading" secondItem="nCh-f7-LWL" secondAttribute="leading" id="1YO-Tf-eZ0"/>
+                            <constraint firstItem="236-ed-JT2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="8HX-P0-9r3"/>
+                            <constraint firstItem="D8U-sW-r5q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9L9-tf-Nh4"/>
+                            <constraint firstItem="236-ed-JT2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MGh-8n-A0E"/>
+                            <constraint firstItem="D8U-sW-r5q" firstAttribute="top" secondItem="U4C-29-bHb" secondAttribute="bottom" constant="30" id="Mm6-OF-2b8"/>
+                            <constraint firstItem="236-ed-JT2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="320" id="PG4-ef-Kur"/>
+                            <constraint firstItem="hdc-k9-zOp" firstAttribute="trailing" secondItem="nCh-f7-LWL" secondAttribute="trailing" id="Poa-VF-pvO"/>
+                            <constraint firstItem="nCh-f7-LWL" firstAttribute="top" secondItem="236-ed-JT2" secondAttribute="bottom" constant="40" id="Q6l-Gc-fOp"/>
+                            <constraint firstItem="U4C-29-bHb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UfB-QM-H61"/>
+                            <constraint firstItem="vrE-YB-7v7" firstAttribute="top" secondItem="hdc-k9-zOp" secondAttribute="bottom" constant="27" id="bxj-Gm-ihW"/>
+                            <constraint firstItem="hdc-k9-zOp" firstAttribute="top" secondItem="236-ed-JT2" secondAttribute="bottom" constant="40" id="fsI-pb-hTB"/>
+                            <constraint firstItem="vrE-YB-7v7" firstAttribute="centerX" secondItem="hdc-k9-zOp" secondAttribute="centerX" id="gQy-Jm-EvD"/>
+                            <constraint firstItem="nCh-f7-LWL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="lRb-QU-WoC"/>
+                            <constraint firstItem="236-ed-JT2" firstAttribute="top" secondItem="D8U-sW-r5q" secondAttribute="bottom" constant="50" id="oyO-Dj-b3s"/>
+                            <constraint firstItem="D8U-sW-r5q" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="s7y-os-PMK"/>
+                            <constraint firstItem="nCh-f7-LWL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xgb-xE-7lj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="TopLabel" destination="U4C-29-bHb" id="JwE-rF-1vd"/>
+                        <outlet property="guessingTextField" destination="nCh-f7-LWL" id="TRB-sP-qIk"/>
+                        <outlet property="guessingWord" destination="236-ed-JT2" id="23v-6W-76b"/>
+                        <outlet property="hangManImage" destination="D8U-sW-r5q" id="9H3-Af-OVu"/>
+                        <outlet property="inputTextField" destination="hdc-k9-zOp" id="WYK-Io-mSu"/>
+                        <outlet property="newGameLabel" destination="vrE-YB-7v7" id="q69-vg-Ahz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.19999999999999" y="130.88455772113943"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="man1" width="75" height="177"/>
+    </resources>
+</document>
