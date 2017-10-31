@@ -46,10 +46,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		return true
 	}
 
-	
 	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		if textField == enterWord {
+			let allowedChars = NSCharacterSet(charactersIn: "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+			guard string.rangeOfCharacter(from: allowedChars as CharacterSet) != nil else {return false}
+		}
+		
 		if textField == guessChar { //check for guessChar textfield
-
+			let allowedChars = NSCharacterSet(charactersIn: "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+			guard string.rangeOfCharacter(from: allowedChars as CharacterSet) != nil else {return false}
+			
 			guard string.characters.count == 1 else { return true }//block more than one character
 			guard !model.usedChars.contains(string) else { return true }
 			textField.text = ""
