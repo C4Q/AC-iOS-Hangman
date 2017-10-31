@@ -8,11 +8,7 @@
 
 import Foundation
 
-struct RandomWord {
-    var word: String
-    var dashedWord: String
-    var dashedArr: [Character]
-}
+
 class GameValues {
     var randWord: RandomWord?
     var numOfGuess: Int
@@ -26,6 +22,13 @@ class GameValues {
         self.guessedLetters = guessedLetters
     }
 }
+
+struct RandomWord {
+    var word: String
+    var dashedWord: String
+    var dashedArr: [Character]
+}
+
 enum GameState {
     case notStarted
     case onGoing(withStats: GameValues)
@@ -40,15 +43,9 @@ enum NumberOfPlayers {
 
 class HangmanBrain {
     
-    var numOfGuess = 0
-    var triesRemaining = 7
-    var guessedLetters: Set<String> = []
-    
     var newRandWord = RandomWord(word: "", dashedWord: "", dashedArr: [Character]())
     var currentGameState = GameState.notStarted
     var currentStats = GameValues(word: nil, numOfGuess: 0, triesRemaining: 7, guessedLetters: [])
-
-    
 
     func setGivenWord(word: String) {
         let randomWord = word
@@ -59,42 +56,27 @@ class HangmanBrain {
         newRandWord = RandomWord(word: randomWord, dashedWord: randomWordHolder, dashedArr: randomWordHolderArr)
         currentStats.randWord = newRandWord
         currentGameState = GameState.onGoing(withStats: currentStats)
-
     }
-    
+
     func getRandomWord() {
         let wordBankCount = self.wordBank.count
         let randomIndex = Int(arc4random_uniform(UInt32(wordBankCount)))
-        
         let randomWord = self.wordBank[randomIndex]
-        let randomWordCount = randomWord.count
-        let randomWordHolder = String(repeating: "_", count: randomWordCount)
-        let randomWordHolderArr = Array(randomWordHolder)
-        newRandWord = RandomWord(word: randomWord, dashedWord: randomWordHolder, dashedArr: randomWordHolderArr)
-        currentStats.randWord = newRandWord
-        currentGameState = GameState.onGoing(withStats: currentStats)
+        setGivenWord(word: randomWord)
     }
     
     func updateGuesses(shouldReset: Bool) -> String {
         currentStats.numOfGuess = (shouldReset == false ? currentStats.numOfGuess + 1 :  0)
         currentStats.triesRemaining = (shouldReset == false ? currentStats.triesRemaining - 1 : 7)
-        dump(currentStats)
-        
-        if triesRemaining == 0 {
-            //END GAME
-        }
+//        dump(currentStats)
         return String(describing: currentStats.numOfGuess)
     }
     
-    func updateGuessedLetters(letter: String) -> String {
-        currentStats.guessedLetters.insert(letter)
-        return String(describing: currentStats.guessedLetters)
-    }
-    
-    func getStats() -> GameValues {
-        return currentStats
-    }
-    
+//    func updateGuessedLetters(letter: String) -> String {
+//        currentStats.guessedLetters.insert(letter)
+//        return String(describing: currentStats.guessedLetters)
+//    }
+//    
     func dashedWordUpdate(letter: String) -> String {
         for (index, char) in currentStats.randWord!.word.enumerated() {
             if letter == String(char) {
@@ -103,6 +85,7 @@ class HangmanBrain {
                 print(currentStats.randWord!.dashedArr)
             }
         }
+        
         return currentStats.randWord!.dashedWord
     }
     
