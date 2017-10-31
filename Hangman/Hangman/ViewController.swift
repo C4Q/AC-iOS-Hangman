@@ -11,13 +11,18 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
     
     //Two Player Hangman
-
+//First View Outlets
+    @IBOutlet weak var forestPic: UIImageView!
+    @IBOutlet weak var WelcomeLabel: UILabel!
+    @IBOutlet weak var playButton: UIButton!
+    
     
     // Instruction Labels
     @IBOutlet weak var playerOneInstructionLabel: UILabel!
     @IBOutlet weak var playerTwoInstructionLabel: UILabel!
     @IBOutlet weak var hiddenWord: UILabel!
     
+    @IBOutlet weak var badLetterLabel: UILabel!
     
     //Player Text Fields
     @IBOutlet weak var playerOneTextField: UITextField!
@@ -41,7 +46,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         resetLayout()
         
     }
-
+    
+    
+    @IBAction func playButtonAction(_ sender: UIButton) {
+        self.forestPic.isHidden = true
+        self.WelcomeLabel.isHidden = true
+        self.playButton.isHidden = true
+    }
+    
     
     //Func makes sure it is one char and disables backspace
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -80,7 +92,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //When return is pressed, this code runs
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        
+
+
         
         //Player One Entry
         if textField == playerOneTextField {
@@ -107,6 +120,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if textField == playerTwoTextField {
             if let str = playerTwoTextField.text {
                 if model.yourAreWrong(Character(str.lowercased())) {
+                    badLetterLabel.text = "\(String(model.charBank))"
                     changeImage(model.counter)
                 }
                 playerTwoInstructionLabel.isHidden = true
@@ -143,6 +157,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.playerOneInstructionLabel.isHidden = false
         self.hiddenWord.isHidden = true
         self.playerTwoInstructionLabel.isHidden = true
+        self.badLetterLabel.text = "Wrong Letters You Already Used:"
         model.startGame("")
         changeImage(0)
     }
