@@ -30,15 +30,11 @@ class PlayerOneViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
-        print(string, range.lowerBound, range.upperBound)
-        
-        if textField == playerOneTextField {
-            if string == "" || "abcdefghijklmnopqrstuvwxyz".contains(string.lowercased()) {
-                playerOnePickAWordLabel.text = "Pick a word for Player 2 to guess."
-                return true
-            } else {
-                playerOnePickAWordLabel.text = "Please use letters from the alphabet."
-            }
+        if string == "" || "abcdefghijklmnopqrstuvwxyz".contains(string.lowercased()) {
+            playerOnePickAWordLabel.text = "Pick a word for Player 2 to guess."
+            return true
+        } else {
+            playerOnePickAWordLabel.text = "Please use letters from the alphabet."
         }
         return false
     }
@@ -70,4 +66,5 @@ class PlayerOneViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "Begin Game", sender: self)
         return true
     }
+    
 }
