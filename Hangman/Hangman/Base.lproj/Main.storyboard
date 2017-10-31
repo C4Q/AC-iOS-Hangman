@@ -92,17 +92,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="classico" translatesAutoresizingMaskIntoConstraints="NO" id="epf-Db-a2i" userLabel="HangmanImageVIew">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="classico7" translatesAutoresizingMaskIntoConstraints="NO" id="epf-Db-a2i" userLabel="HangmanImageVIew">
+                                <rect key="frame" x="-1" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="_ _ _ _ _ _ _ _ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmO-BT-nqv">
-                                <rect key="frame" x="21" y="127.5" width="126" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="potential letters" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TN7-SI-yHo">
                                 <rect key="frame" x="72" y="53" width="230" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -143,17 +136,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="_ _ _ _ _ _ _ _ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmO-BT-nqv">
+                                <rect key="frame" x="16" y="192" width="126" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="gameStatusLabel" destination="dUW-7M-3lI" id="HH9-C9-TED"/>
+                        <outlet property="guessingTextField" destination="WdO-e8-fPA" id="Nd8-a0-1yY"/>
                         <outlet property="hangManAnimation" destination="epf-Db-a2i" id="FzZ-fk-F5c"/>
                         <outlet property="mysteryWordLabel" destination="tmO-BT-nqv" id="N0u-7U-RiV"/>
                         <outlet property="potentialLettersLabel" destination="TN7-SI-yHo" id="dyn-JY-6YY"/>
                         <outlet property="secureTextField" destination="b05-Vy-fAt" id="mcu-p4-i0m"/>
-                        <outlet property="textField" destination="WdO-e8-fPA" id="gJj-ug-Q9g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -162,7 +162,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="classico" width="320" height="480"/>
+        <image name="classico7" width="320" height="480"/>
         <image name="hangmanRules" width="320" height="480"/>
         <image name="title.png" width="771" height="155"/>
     </resources>
