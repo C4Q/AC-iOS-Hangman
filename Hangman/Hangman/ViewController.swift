@@ -8,6 +8,8 @@
 
 import UIKit
 
+// put app icon and input letter not with return
+
 class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var inputSecureWord: UITextField!
@@ -37,16 +39,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if string == "" {
                 return true
             }
-            guard HangmanModel.inputAllowed.contains(string.lowercased()) && range.upperBound < 12 else {
+            guard HangmanModel.inputAllowed.contains(string.lowercased()) else {
                 return false
             }
             return true
         }
         if textField == inputLetterGuess {
-            if string == "" {
-                return true
+            guard let textInField = textField.text else {
+                return false
             }
-            guard HangmanModel.inputAllowed.contains(string.lowercased()) && range.upperBound < 1 else {
+            if textInField.count == 1 {
+                return false
+            }
+            if hangmanModel.letterAlreadyEntered(letter: Character(string.lowercased())) {
+                messageLabel.text = string.uppercased() + " already entered"
+                return false
+            }
+            guard HangmanModel.inputAllowed.contains(string.lowercased()) else {
                 return false
             }
             return true
@@ -65,13 +74,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             hangmanModel.setWordToGuess(word: textInTextfield.lowercased())
             guessWordLabel.text = hangmanModel.wordGuessedSoFarWithSpaces()
+            messageLabel.text = "Player 2: Time to guess"
             inputLetterGuess.isHidden = false
             guessWordLabel.isHidden = false
-            messageLabel.text = "Player 2: Time to guess"
             turnLabel.isHidden = false
             wrongGuessesLabel.isHidden = false
-            textField.resignFirstResponder()
             textField.isHidden = true
+            textField.resignFirstResponder()
             return true
         }
         
@@ -86,31 +95,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if hangmanModel.letterAlreadyEntered(letter:Character(letterEntered.lowercased())) {
                 messageLabel.text = letterEntered.uppercased() + " already entered"
                 textField.text = ""
-                textField.resignFirstResponder()
                 return false
             }
             if hangmanModel.contains(letter: Character(letterEntered.lowercased())) {
                 messageLabel.text = letterEntered.uppercased() + " found in word"
                 guessWordLabel.text = hangmanModel.wordGuessedSoFarWithSpaces()
                 if hangmanModel.hasGuessedWord() {
+                    let lightGreen = UIColor(red: 0.2, green: 0.8, blue: 0.2, alpha: 1.0)
+                    messageLabel.textColor = lightGreen
                     messageLabel.text = "You guessed the word!"
                     inputLetterGuess.isHidden = true
                     newGameButton.isHidden = false
+                    textField.resignFirstResponder()
                 }
             } else {
                 messageLabel.text = letterEntered.uppercased() + " not in word"
                 wrongGuessesLabel.text = "Wrong Guesses: " + hangmanModel.getWrongGuesses().description
                 updateHangman(wrongGuess: hangmanModel.getWrongGuesses())
                 if hangmanModel.playerHasLost() {
-                    messageLabel.text = "You were hanged"
+                    messageLabel.textColor = UIColor.red
+                    messageLabel.text = "You were hanged!"
                     guessWordLabel.text = "Word was: " + hangmanModel.getWordToGuess().uppercased()
                     newGameButton.isHidden = false
                     inputLetterGuess.isHidden = true
+                    textField.resignFirstResponder()
                 }
             }
             textField.text = ""
             turnLabel.text = "Turn: " + hangmanModel.getTurnsSoFar().description
-            textField.resignFirstResponder()
             return true
         }
         return false
@@ -133,26 +145,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
         case 7:
             hangmanImage.image = UIImage(named: "man7")
         default:
-            print("Something went wrong")
+            hangmanImage.image = UIImage(named: "man1")
         }
     }
     
     @IBAction func newGamePressed(_ sender: UIButton) {
         hangmanModel.resetGame()
+        messageLabel.textColor = UIColor.black
         messageLabel.text = "Player 1: Enter a word to guess"
         turnLabel.text = "Turn: 1"
         wrongGuessesLabel.text = "Wrong Guesses: 0"
-        inputSecureWord.isHidden = false
         inputSecureWord.text = ""
-        inputSecureWord.isEnabled = true
         guessWordLabel.text = ""
+        inputSecureWord.isHidden = false
+        inputSecureWord.isEnabled = true
         guessWordLabel.isHidden = true
         newGameButton.isHidden = true
+        turnLabel.isHidden = true
+        wrongGuessesLabel.isHidden = true
         hangmanImage.image = UIImage(named: "")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

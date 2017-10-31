@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,68 +24,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hangmanTitle" translatesAutoresizingMaskIntoConstraints="NO" id="vi4-Kd-SNT">
-                                <rect key="frame" x="32" y="42" width="310" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hangmanTitle" translatesAutoresizingMaskIntoConstraints="NO" id="vi4-Kd-SNT">
+                                <rect key="frame" x="30" y="35" width="315" height="55"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player 1: Enter a word to guess" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Ut-AF-SY7">
-                                <rect key="frame" x="35" y="100" width="304" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3c-iL-54h">
-                                <rect key="frame" x="60" y="135" width="255" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJV-5K-7lk">
-                                <rect key="frame" x="135" y="135" width="105" height="210"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guessing Word Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Kx1-Nc-GY7">
-                                <rect key="frame" x="16" y="353" width="343" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu1-8m-Chl">
-                                <rect key="frame" x="113" y="401" width="160" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="newGame">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="newGamePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jO8-io-NHJ"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qv-N2-Tgr">
-                                <rect key="frame" x="168" y="412" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Turn: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T4m-kf-JN9">
-                                <rect key="frame" x="109" y="477" width="168" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wrong Guesses: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="o6A-z7-VMT">
-                                <rect key="frame" x="110" y="510" width="167" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fPK-BQ-OIx">
+                                <rect key="frame" x="0.0" y="99" width="375" height="548"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1: Enter a word to guess" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Ut-AF-SY7">
+                                        <rect key="frame" x="43.5" y="0.0" width="288.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3c-iL-54h">
+                                        <rect key="frame" x="19" y="33.5" width="337" height="38"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dJV-5K-7lk">
+                                        <rect key="frame" x="150" y="71.5" width="75" height="175.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guessing Word Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Kx1-Nc-GY7">
+                                        <rect key="frame" x="72" y="247" width="231.5" height="55.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3qv-N2-Tgr">
+                                        <rect key="frame" x="168.5" y="302.5" width="38" height="38"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fu1-8m-Chl">
+                                        <rect key="frame" x="99.5" y="340.5" width="176" height="152.5"/>
+                                        <state key="normal" image="newGame">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="newGamePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jO8-io-NHJ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T4m-kf-JN9">
+                                        <rect key="frame" x="160" y="493" width="55.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Guesses: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="o6A-z7-VMT">
+                                        <rect key="frame" x="113.5" y="520.5" width="148.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="e3c-iL-54h" firstAttribute="height" secondItem="fPK-BQ-OIx" secondAttribute="height" multiplier="0.07" id="5xQ-gV-6tF"/>
+                                    <constraint firstItem="dJV-5K-7lk" firstAttribute="height" secondItem="fPK-BQ-OIx" secondAttribute="height" multiplier="0.32" id="79A-DK-hLi"/>
+                                    <constraint firstItem="Kx1-Nc-GY7" firstAttribute="height" secondItem="fPK-BQ-OIx" secondAttribute="height" multiplier="0.1" id="CxX-sk-Avk"/>
+                                    <constraint firstItem="3qv-N2-Tgr" firstAttribute="height" secondItem="fPK-BQ-OIx" secondAttribute="height" multiplier="0.07" id="gmI-Cy-TmJ"/>
+                                    <constraint firstItem="e3c-iL-54h" firstAttribute="width" secondItem="fPK-BQ-OIx" secondAttribute="width" multiplier="0.9" id="jDl-JB-MjD"/>
+                                    <constraint firstItem="T4m-kf-JN9" firstAttribute="bottom" secondItem="o6A-z7-VMT" secondAttribute="top" id="sRc-n6-7Yo"/>
+                                    <constraint firstItem="T4m-kf-JN9" firstAttribute="height" secondItem="fPK-BQ-OIx" secondAttribute="height" multiplier="0.05" id="tLw-aG-h1e"/>
+                                    <constraint firstItem="T4m-kf-JN9" firstAttribute="height" secondItem="o6A-z7-VMT" secondAttribute="height" id="uaZ-IA-Yc3"/>
+                                    <constraint firstItem="dJV-5K-7lk" firstAttribute="width" secondItem="fPK-BQ-OIx" secondAttribute="width" multiplier="0.2" id="v7w-gm-lWp"/>
+                                    <constraint firstItem="7Ut-AF-SY7" firstAttribute="height" secondItem="fPK-BQ-OIx" secondAttribute="height" multiplier="0.06" id="vPK-tu-JVX"/>
+                                    <constraint firstItem="3qv-N2-Tgr" firstAttribute="width" secondItem="fPK-BQ-OIx" secondAttribute="width" multiplier="0.1" id="znH-GS-ADj"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fPK-BQ-OIx" firstAttribute="height" secondItem="vi4-Kd-SNT" secondAttribute="height" multiplier="10" id="8tS-X4-fu8"/>
+                            <constraint firstItem="vi4-Kd-SNT" firstAttribute="bottom" secondItem="fPK-BQ-OIx" secondAttribute="top" multiplier="0.9" id="Tx0-ro-GmB"/>
+                            <constraint firstItem="vi4-Kd-SNT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="b10-Oy-iZJ"/>
+                            <constraint firstItem="vi4-Kd-SNT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="bgX-2d-MlK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fPK-BQ-OIx" secondAttribute="trailing" id="gZO-oG-CKo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fPK-BQ-OIx" secondAttribute="bottom" constant="20" id="hpm-zz-kNW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="fPK-BQ-OIx" secondAttribute="leading" id="nwR-VT-9kD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vi4-Kd-SNT" secondAttribute="trailing" constant="30" id="xot-nL-CqX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -105,6 +126,6 @@
     </scenes>
     <resources>
         <image name="hangmanTitle" width="350" height="63"/>
-        <image name="newGame" width="160" height="50"/>
+        <image name="newGame" width="176" height="66"/>
     </resources>
 </document>
