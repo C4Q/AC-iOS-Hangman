@@ -8,8 +8,6 @@
 
 import UIKit
 
-// put app icon and input letter not with return
-
 class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var inputSecureWord: UITextField!
