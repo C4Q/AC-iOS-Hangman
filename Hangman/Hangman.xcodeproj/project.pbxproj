@@ -69,8 +69,7 @@
 				3E1A62161F97B0930025E03C /* Main.storyboard */,
 				3E1A62191F97B0930025E03C /* Assets.xcassets */,
 				3E1A621B1F97B0930025E03C /* LaunchScreen.storyboard */,
-				81361AF91FA544A100529A8F /* HangmanOnePlayerModel.swift */,
-				81361B041FA5777400529A8F /* HangmanTwoPlayerModel.swift */,
+				81D4300A1FA8288D00905944 /* Models */,
 				3E1A621E1F97B0930025E03C /* Info.plist */,
 			);
 			path = Hangman;
@@ -93,6 +92,15 @@
 				81C3B16B1FA6CEF80038CF94 /* PlayerTwoViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		81D4300A1FA8288D00905944 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81361AF91FA544A100529A8F /* HangmanOnePlayerModel.swift */,
+				81361B041FA5777400529A8F /* HangmanTwoPlayerModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
