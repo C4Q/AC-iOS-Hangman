@@ -12,6 +12,10 @@
 		3E1A62181F97B0930025E03C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A62161F97B0930025E03C /* Main.storyboard */; };
 		3E1A621A1F97B0930025E03C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A62191F97B0930025E03C /* Assets.xcassets */; };
 		3E1A621D1F97B0930025E03C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A621B1F97B0930025E03C /* LaunchScreen.storyboard */; };
+		879C78F81FA6B6CD00CF95BD /* TitleScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C78F71FA6B6CD00CF95BD /* TitleScreenController.swift */; };
+		879C79241FA6DF8600CF95BD /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 879C79231FA6DF8500CF95BD /* title.png */; };
+		F45A55EA1FA76B8400A1994B /* WordBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45A55E91FA76B8400A1994B /* WordBank.swift */; };
+		F4F2B5021FA4E72100872BDB /* HangManModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F2B5011FA4E72100872BDB /* HangManModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		3E1A62191F97B0930025E03C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E1A621C1F97B0930025E03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E1A621E1F97B0930025E03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		879C78F71FA6B6CD00CF95BD /* TitleScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenController.swift; sourceTree = "<group>"; };
+		879C79231FA6DF8500CF95BD /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		F45A55E91FA76B8400A1994B /* WordBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBank.swift; sourceTree = "<group>"; };
+		F4F2B5011FA4E72100872BDB /* HangManModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangManModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +48,7 @@
 			children = (
 				3E1A62111F97B0920025E03C /* Hangman */,
 				3E1A62101F97B0920025E03C /* Products */,
+				879C79231FA6DF8500CF95BD /* title.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,11 +64,14 @@
 			isa = PBXGroup;
 			children = (
 				3E1A62121F97B0930025E03C /* AppDelegate.swift */,
+				879C78F71FA6B6CD00CF95BD /* TitleScreenController.swift */,
 				3E1A62141F97B0930025E03C /* ViewController.swift */,
+				F45A55E91FA76B8400A1994B /* WordBank.swift */,
 				3E1A62161F97B0930025E03C /* Main.storyboard */,
 				3E1A62191F97B0930025E03C /* Assets.xcassets */,
 				3E1A621B1F97B0930025E03C /* LaunchScreen.storyboard */,
 				3E1A621E1F97B0930025E03C /* Info.plist */,
+				F4F2B5011FA4E72100872BDB /* HangManModel.swift */,
 			);
 			path = Hangman;
 			sourceTree = "<group>";
@@ -123,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879C79241FA6DF8600CF95BD /* title.png in Resources */,
 				3E1A621D1F97B0930025E03C /* LaunchScreen.storyboard in Resources */,
 				3E1A621A1F97B0930025E03C /* Assets.xcassets in Resources */,
 				3E1A62181F97B0930025E03C /* Main.storyboard in Resources */,
@@ -136,8 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				879C78F81FA6B6CD00CF95BD /* TitleScreenController.swift in Sources */,
+				F4F2B5021FA4E72100872BDB /* HangManModel.swift in Sources */,
 				3E1A62151F97B0930025E03C /* ViewController.swift in Sources */,
 				3E1A62131F97B0930025E03C /* AppDelegate.swift in Sources */,
+				F45A55EA1FA76B8400A1994B /* WordBank.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
