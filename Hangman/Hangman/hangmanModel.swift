@@ -111,13 +111,12 @@ class HangmanLogic {
                                              "Redirect","Register"]),
                              ("hard","names",["Armando","Karelia","Marlon","Napoleon"])]
     func getSecretGuessWord() -> String {
-        var secretWord = ""
         for category in wordByLevelandCat {
             if category.0.uppercased() == String(describing: currentPlayer.setGameLevel).uppercased() && category.1.uppercased() == String(describing: currentPlayer.setGameCategory).uppercased() {
-                secretWord = category.2[Int(arc4random_uniform(UInt32(category.2.count - 1)))].uppercased()
+                currentPlayer.guessWord = category.2[Int(arc4random_uniform(UInt32(category.2.count - 1)))].uppercased()
             }
         }
-        return secretWord
+        return currentPlayer.guessWord
     }
     
     func isMatch(_ chr: Character) -> Bool {

@@ -53,11 +53,7 @@
                                         <rect key="frame" x="0.5" y="0.0" width="247.5" height="333.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Set the secret word" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OjX-Mu-50o">
-                                                <rect key="frame" x="49" y="152" width="151" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="4Q9-rt-fAF"/>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="oaq-oi-ZW8"/>
-                                                </constraints>
+                                                <rect key="frame" x="31" y="152" width="185.5" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -95,7 +91,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7T3-Eq-Muy">
-                                                <rect key="frame" x="49" y="122" width="151" height="30"/>
+                                                <rect key="frame" x="31" y="122" width="185.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -151,7 +147,6 @@
                                             <constraint firstItem="OjX-Mu-50o" firstAttribute="centerY" secondItem="dvM-ZB-pKJ" secondAttribute="centerY" id="8PX-FR-hLN"/>
                                             <constraint firstItem="lTx-De-sIO" firstAttribute="height" secondItem="OjX-Mu-50o" secondAttribute="height" id="990-jE-tIh"/>
                                             <constraint firstItem="7T3-Eq-Muy" firstAttribute="centerX" secondItem="dvM-ZB-pKJ" secondAttribute="centerX" id="CJh-iW-EjG"/>
-                                            <constraint firstItem="lTx-De-sIO" firstAttribute="width" secondItem="OjX-Mu-50o" secondAttribute="width" id="DQ7-Mg-s6v"/>
                                             <constraint firstItem="OjX-Mu-50o" firstAttribute="centerX" secondItem="dvM-ZB-pKJ" secondAttribute="centerX" id="JhZ-hS-6B4"/>
                                             <constraint firstItem="7T3-Eq-Muy" firstAttribute="top" secondItem="NOK-gz-qA0" secondAttribute="bottom" id="O4r-wo-5cG"/>
                                             <constraint firstItem="e8T-T3-bu9" firstAttribute="width" secondItem="lTx-De-sIO" secondAttribute="width" id="Opc-3I-BDI"/>
@@ -159,6 +154,7 @@
                                             <constraint firstItem="OjX-Mu-50o" firstAttribute="top" secondItem="7T3-Eq-Muy" secondAttribute="bottom" id="QIS-Fc-tEg"/>
                                             <constraint firstItem="NOK-gz-qA0" firstAttribute="centerX" secondItem="dvM-ZB-pKJ" secondAttribute="centerX" id="VRa-d8-GdD"/>
                                             <constraint firstItem="e8T-T3-bu9" firstAttribute="height" secondItem="lTx-De-sIO" secondAttribute="height" id="aN9-Jo-qhg"/>
+                                            <constraint firstItem="OjX-Mu-50o" firstAttribute="width" secondItem="dvM-ZB-pKJ" secondAttribute="width" multiplier="0.75" id="htN-5Q-vvI"/>
                                             <constraint firstItem="lTx-De-sIO" firstAttribute="top" secondItem="OjX-Mu-50o" secondAttribute="bottom" constant="8" id="hxR-ro-t58"/>
                                             <constraint firstItem="lTx-De-sIO" firstAttribute="centerX" secondItem="dvM-ZB-pKJ" secondAttribute="centerX" id="iUJ-Mu-yfz"/>
                                         </constraints>

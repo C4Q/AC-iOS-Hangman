@@ -158,7 +158,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             if string == "" {
                 return true
             }
-            if "abcdefghijklmnopqrsuvwxyz".contains(string.lowercased()) {
+            if "abcdefghijklmnopqrsuvwxyzt".contains(string.lowercased()) {
                 return true
             } else {
                 return false
