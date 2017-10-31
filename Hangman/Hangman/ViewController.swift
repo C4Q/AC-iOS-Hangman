@@ -56,12 +56,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if string.rangeOfCharacter(from: characterSet.inverted) != nil {
             return false
         }
-        if let text = textFieldForGuessing.text {
-            if brain.correctAnswerArray.contains(text) || brain.wrongAnswerArray.contains(text) {
-                messageToPlayer.text = "You picked \"\(text)\" already"
-                return false
-            }
-        }
+//        if let text = textFieldForGuessing.text {
+//            if brain.correctAnswerArray.contains(text) || brain.wrongAnswerArray.contains(text) {
+//                messageToPlayer.text = "You picked \"\(text)\" already"
+//                return false
+//            }//was taking in empty strings as incorrect answers, but since a textfield starts as an empty string, it prevents the textfield from doing anything once the empty string is in the wrongAnswerArray
+//            
+//        }
         if textField == textFieldForGuessing {
             guard string.count == 1, textFieldForGuessing.text!.count < 1 else {return false}
         }
@@ -123,7 +124,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        //while brain.currentGameState == brain.startOfTwoPlayerGame - doesnt work :/
+        //while brain.currentGameState == brain.startOfTwoPlayerGame {}
         
         while brain.newTwoPlayerGame == true {
 //            brain.playerOnePicksAWordToGuess()
