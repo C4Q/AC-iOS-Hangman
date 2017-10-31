@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var guessingTextField: UITextField!
     @IBOutlet weak var secureTextField: UITextField!
     @IBOutlet weak var hangManAnimation: UIImageView!
+    @IBOutlet weak var attemptsRemainingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         guard game.gameStatus != .onGoing else {
             hideLabels(when: .onGoing)
+            attemptsRemainingLabel.text = game.guessesLeftTracker()
             gameStatusLabel.text = game.gameStatus.rawValue
             mysteryWordLabel.text = game.mysterWordInProgress.joined()
             potentialLettersLabel.text = ("Potential letters: \n\(game.potentialLetters.joined())")
@@ -93,21 +95,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         hangManAnimation.image = UIImage(named: game.hangmanImage)
         switch when {
         case .victorious:
+            attemptsRemainingLabel.isHidden = true
             mysteryWordLabel.isHidden = true
             potentialLettersLabel.isHidden = true
             guessingTextField.isHidden = true
             secureTextField.isHidden = true
         case .failed:
+            attemptsRemainingLabel.isHidden = true
             mysteryWordLabel.isHidden = true
             potentialLettersLabel.isHidden = true
             guessingTextField.isHidden = true
             secureTextField.isHidden = true
         case .onGoing:
+            attemptsRemainingLabel.isHidden = false
             mysteryWordLabel.isHidden = false
             potentialLettersLabel.isHidden = false
             guessingTextField.isHidden = false
             secureTextField.isHidden = true
         case .enterMysteryWord:
+            attemptsRemainingLabel.isHidden = true
             mysteryWordLabel.isHidden = true
             potentialLettersLabel.isHidden = true
             guessingTextField.isHidden = true

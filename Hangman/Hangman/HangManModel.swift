@@ -28,10 +28,10 @@ class Hangman {
         var potentialLetters = "abcdefghijklmnopqrstuvwxyz"
     }
     
-    var gameRules = GameRules()
-    var randomWord = WordBank(word: "")
+    private var gameRules = GameRules()
+    private var randomWord = WordBank(word: "")
     var hangmanImage: String = ""
-    var currentGameMode = GameMode.randomWord
+    private var currentGameMode = GameMode.randomWord
     var gameStatus: GameStatus = .enterMysteryWord
     var mysterWordInProgress: [String] = []
     var potentialLetters: [String] = []
@@ -50,7 +50,7 @@ class Hangman {
     }
     
     
-    func setMysteryWord(as thisWord: String) {
+    private func setMysteryWord(as thisWord: String) {
         randomWord = WordBank.init(word: thisWord)
         mysterWordInProgress = Array(repeatElement("_ ", count: thisWord.count))
         currentGameMode = .wordChosen
@@ -77,7 +77,7 @@ class Hangman {
         return true
     }
     
-    func getHangmanImage() -> String {
+    private func getHangmanImage() -> String {
         switch gameRules.currentTotalAttempts {
         case 0:
             hangmanImage = "classico.png"
@@ -102,13 +102,13 @@ class Hangman {
     }
     
     
-    func populateMysteryWord(with letter: String) {
+    private func populateMysteryWord(with letter: String) {
         for index in 0..<randomWord.wordAsArray.count where randomWord.wordAsArray[index] == letter {
             mysterWordInProgress[index] = letter
         }
     }
     
-    func gameOverChecker(){
+    private func gameOverChecker(){
         guard gameRules.currentTotalAttempts != gameRules.maxAttempts else {
             return gameStatus = .failed
         }
@@ -116,6 +116,11 @@ class Hangman {
             return gameStatus = .onGoing
         }
         return gameStatus = .victorious
+    }
+    
+    func guessesLeftTracker() -> String {
+        let total = gameRules.maxAttempts - gameRules.currentTotalAttempts
+        return "Guesses left: \(total)"
     }
 }
 
