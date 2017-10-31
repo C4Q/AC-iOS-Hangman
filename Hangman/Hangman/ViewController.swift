@@ -11,6 +11,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	@IBOutlet weak var winLoseDisplay: UILabel!
 	@IBOutlet weak var correctWordDisplay: UILabel!
 	
+	//Resrt Display
 	@IBAction func restartGame(_ sender: UIButton) {
 		model.resetModel()
 		enterWord.isUserInteractionEnabled = true
@@ -18,11 +19,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		guessChar.text = ""
 		usedLetters.text = ""
 		correctLetters.text = ""
-		model.addWord("")
 		hangmanDisplay.image = nil
 		correctWordDisplay.isHidden = true
 		winLoseDisplay.isHidden = true
-		enterWord.becomeFirstResponder() //put cursor at
+		enterWord.becomeFirstResponder() //move cursor to enter new word
 	}
 	
 	override func viewDidLoad() {
@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		if textField == enterWord {
-			model.addWord(textField.text!.lowercased())
+			model.newWord(textField.text!.lowercased())
 			correctLetters.text = model.placeholderString
 			enterWord.isUserInteractionEnabled = false
 			guessChar.isUserInteractionEnabled = true
@@ -55,17 +55,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		if textField == guessChar { //check for guessChar textfield
 			let allowedChars = NSCharacterSet(charactersIn: "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
 			guard string.rangeOfCharacter(from: allowedChars as CharacterSet) != nil else {return false}
-			
-			guard string.characters.count == 1 else { return true }//block more than one character
+
+			guard string.characters.count == 1 else { return false }
 			guard !model.usedChars.contains(string) else { return true }
-			textField.text = ""
 
 			model.matching(guessLetter: Character(string.lowercased()))
 			usedLetters.text = model.usedChars
 			correctLetters.text = model.placeholderString
+			textField.text = ""
 
-			switch model.wrongGuessCounter { //updating hangman
-//			case 0: hangmanDisplay.image = nil
+			switch model.wrongGuessCounter { //update hangman
 			case 1: hangmanDisplay.image = #imageLiteral(resourceName: "man1")
 			case 2: hangmanDisplay.image = #imageLiteral(resourceName: "man2")
 			case 3: hangmanDisplay.image = #imageLiteral(resourceName: "man3")
@@ -79,13 +78,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
 			if model.gameOver {
 				winLoseDisplay.text = model.winLose
 				winLoseDisplay.isHidden = false
-				correctWordDisplay.text = "The correct word was: \(model.wordString) "
+				correctWordDisplay.text = "The correct word was: \(model.wordString)"
 				correctWordDisplay.isHidden = false
 				enterWord.isUserInteractionEnabled = false
 				guessChar.isUserInteractionEnabled = false
 			}
 		} //end if
-		
 		return true
 	}
 } //end class ViewController

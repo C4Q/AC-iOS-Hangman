@@ -21,9 +21,9 @@ class HangmanModel {
 		gameOver = false
 	}
 	
-	func addWord(_ word: String) {
+	func newWord(_ word: String) {
 		self.wordString = word
-		self.placeholderArray = Array(repeating: "_", count: word.count)
+		self.placeholderArray = Array(repeating: ".", count: word.count)
 		self.placeholderString = String(placeholderArray)
 	}
 	
