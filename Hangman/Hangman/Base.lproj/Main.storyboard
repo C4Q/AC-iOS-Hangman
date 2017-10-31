@@ -25,7 +25,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="p2 guess" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ivr-c3-UWG">
-                                <rect key="frame" x="40" y="288" width="230" height="30"/>
+                                <rect key="frame" x="40" y="273" width="260" height="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -34,13 +34,13 @@
                                 <rect key="frame" x="120" y="40" width="96" height="57"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mig-55-oUg">
-                                <rect key="frame" x="50" y="177" width="207" height="0.0"/>
+                                <rect key="frame" x="50" y="167" width="207" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="guesses: 7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BS5-zY-fN6">
-                                <rect key="frame" x="80" y="197" width="160" height="21"/>
+                                <rect key="frame" x="80" y="187" width="160" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVu-w6-gK2">
-                                <rect key="frame" x="25" y="243" width="270" height="25"/>
+                                <rect key="frame" x="25" y="228" width="270" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="FYJ-GJ-tIu"/>
                                 </constraints>
@@ -66,12 +66,12 @@
                         <constraints>
                             <constraint firstItem="ivr-c3-UWG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="03R-RR-5Lg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kgz-EW-Qhy" secondAttribute="trailing" constant="85" id="DrU-Sr-Swu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ivr-c3-UWG" secondAttribute="trailing" constant="50" id="Etm-uv-RWB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ivr-c3-UWG" secondAttribute="trailing" constant="20" id="Etm-uv-RWB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1w6-Pe-MlH" secondAttribute="bottom" constant="70" id="Fxp-rD-PWT"/>
                             <constraint firstItem="1w6-Pe-MlH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Gfx-8r-KA6"/>
                             <constraint firstItem="Mig-55-oUg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="HvT-AH-f37"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mig-55-oUg" secondAttribute="trailing" constant="63" id="Ikl-Mw-g9i"/>
-                            <constraint firstItem="GVu-w6-gK2" firstAttribute="top" secondItem="BS5-zY-fN6" secondAttribute="bottom" constant="25" id="MU8-LT-Afy"/>
+                            <constraint firstItem="GVu-w6-gK2" firstAttribute="top" secondItem="BS5-zY-fN6" secondAttribute="bottom" constant="20" id="MU8-LT-Afy"/>
                             <constraint firstItem="GVu-w6-gK2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="Pui-ka-Btj"/>
                             <constraint firstItem="kgz-EW-Qhy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Tdr-Cn-6tk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1w6-Pe-MlH" secondAttribute="trailing" constant="100" id="UXO-SW-Xgc"/>
@@ -79,7 +79,7 @@
                             <constraint firstItem="ivr-c3-UWG" firstAttribute="top" secondItem="GVu-w6-gK2" secondAttribute="bottom" constant="20" id="VYe-e4-afQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GVu-w6-gK2" secondAttribute="trailing" constant="25" id="YIo-7i-K1v"/>
                             <constraint firstItem="kgz-EW-Qhy" firstAttribute="top" secondItem="GEV-Bx-uvx" secondAttribute="bottom" constant="20" id="ZLG-gw-azv"/>
-                            <constraint firstItem="Mig-55-oUg" firstAttribute="top" secondItem="kgz-EW-Qhy" secondAttribute="bottom" constant="30" id="hRS-Rc-MzV"/>
+                            <constraint firstItem="Mig-55-oUg" firstAttribute="top" secondItem="kgz-EW-Qhy" secondAttribute="bottom" constant="20" id="hRS-Rc-MzV"/>
                             <constraint firstItem="GEV-Bx-uvx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="mLO-En-asZ"/>
                             <constraint firstItem="GEV-Bx-uvx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="qtx-3B-Rl3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BS5-zY-fN6" secondAttribute="trailing" constant="80" id="sdt-Zz-sUZ"/>
