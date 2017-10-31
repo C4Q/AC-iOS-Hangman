@@ -12,6 +12,7 @@
 		3E1A62181F97B0930025E03C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A62161F97B0930025E03C /* Main.storyboard */; };
 		3E1A621A1F97B0930025E03C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A62191F97B0930025E03C /* Assets.xcassets */; };
 		3E1A621D1F97B0930025E03C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A621B1F97B0930025E03C /* LaunchScreen.storyboard */; };
+		D268660D1FA6C1D30005709D /* HangManModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268660C1FA6C1D30005709D /* HangManModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3E1A62191F97B0930025E03C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E1A621C1F97B0930025E03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E1A621E1F97B0930025E03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D268660C1FA6C1D30005709D /* HangManModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangManModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXGroup;
 			children = (
 				3E1A62111F97B0920025E03C /* Hangman */,
+				D2CF14561FA6AAC3009521A2 /* Model */,
 				3E1A62101F97B0920025E03C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +65,14 @@
 				3E1A621E1F97B0930025E03C /* Info.plist */,
 			);
 			path = Hangman;
+			sourceTree = "<group>";
+		};
+		D2CF14561FA6AAC3009521A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D268660C1FA6C1D30005709D /* HangManModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E1A62151F97B0930025E03C /* ViewController.swift in Sources */,
+				D268660D1FA6C1D30005709D /* HangManModel.swift in Sources */,
 				3E1A62131F97B0930025E03C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
