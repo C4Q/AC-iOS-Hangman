@@ -12,6 +12,7 @@
 		3E1A62181F97B0930025E03C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A62161F97B0930025E03C /* Main.storyboard */; };
 		3E1A621A1F97B0930025E03C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A62191F97B0930025E03C /* Assets.xcassets */; };
 		3E1A621D1F97B0930025E03C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E1A621B1F97B0930025E03C /* LaunchScreen.storyboard */; };
+		81684BEE1FA14EB40070FAF8 /* hangmanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81684BED1FA14EB40070FAF8 /* hangmanModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3E1A62191F97B0930025E03C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E1A621C1F97B0930025E03C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E1A621E1F97B0930025E03C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81684BED1FA14EB40070FAF8 /* hangmanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hangmanModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				3E1A62121F97B0930025E03C /* AppDelegate.swift */,
 				3E1A62141F97B0930025E03C /* ViewController.swift */,
 				3E1A62161F97B0930025E03C /* Main.storyboard */,
+				81684BED1FA14EB40070FAF8 /* hangmanModel.swift */,
 				3E1A62191F97B0930025E03C /* Assets.xcassets */,
 				3E1A621B1F97B0930025E03C /* LaunchScreen.storyboard */,
 				3E1A621E1F97B0930025E03C /* Info.plist */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E1A62151F97B0930025E03C /* ViewController.swift in Sources */,
+				81684BEE1FA14EB40070FAF8 /* hangmanModel.swift in Sources */,
 				3E1A62131F97B0930025E03C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,13 +279,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TX9MB8N6AG;
+				DEVELOPMENT_TEAM = NLCWGA9FRB;
 				INFOPLIST_FILE = Hangman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.c4q.marcelchaucer.Hangman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -290,13 +295,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TX9MB8N6AG;
+				DEVELOPMENT_TEAM = NLCWGA9FRB;
 				INFOPLIST_FILE = Hangman/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyc.c4q.marcelchaucer.Hangman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
